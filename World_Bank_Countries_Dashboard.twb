@@ -1,0 +1,410 @@
+<?xml version="1.0" ?>
+<workbook xmlns:user="http://www.tableausoftware.com/xml/user" version="18.1">
+  <document-format-change-manifest>
+    <IntuitiveSorting/>
+    <IntuitiveSorting_SP2/>
+    <SheetIdentifierTracking/>
+    <WindowsPersistSimpleIdentifiers/>
+  </document-format-change-manifest>
+  <preferences>
+    <preference name="ui.encoding.shelf.height" value="24"/>
+    <preference name="ui.shelf.height" value="26"/>
+  </preferences>
+  <datasources>
+    <datasource caption="CLASS_2025_07_02" inline="true" name="federated.0l8h7ne1q4h91z19bvmwz0w7c4q6" version="18.1">
+      <connection class="federated">
+        <named-connections>
+          <named-connection caption="CLASS_2025_07_02" name="excel-direct.0mxt3x11f7v3f515gqxuw1p9mzm5">
+            <connection class="excel-direct" filename="CLASS_2025_07_02.xlsx" interpretationMode="0" password="" server="" validate="true" authentication="auth-none"/>
+          </named-connection>
+        </named-connections>
+        <relation connection="excel-direct.0mxt3x11f7v3f515gqxuw1p9mzm5" name="List of economies" table="[List of economies$]" type="table">
+          <columns gridOrigin="A1:D82:no:A1:D82:0" header="yes" outcome="2">
+            <column datatype="string" name="Country" ordinal="0"/>
+            <column datatype="string" name="Region" ordinal="1"/>
+            <column datatype="string" name="Income Group" ordinal="2"/>
+            <column datatype="string" name="Lending Category" ordinal="3"/>
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class="column">
+            <remote-name>Country</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Country]</local-name>
+            <parent-name>[List of economies]</parent-name>
+            <remote-alias>Country</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>Region</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Region]</local-name>
+            <parent-name>[List of economies]</parent-name>
+            <remote-alias>Region</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>Income Group</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Income Group]</local-name>
+            <parent-name>[List of economies]</parent-name>
+            <remote-alias>Income Group</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class="column">
+            <remote-name>Lending Category</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Lending Category]</local-name>
+            <parent-name>[List of economies]</parent-name>
+            <remote-alias>Lending Category</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled="yes"/>
+      <column caption="Count of Countries" datatype="integer" name="[Number of Records]" role="measure" type="quantitative" user:auto-column="numrec">
+        <calculation class="tableau" formula="1"/>
+      </column>
+      <layout dim-ordering="alphabetic" dim-percentage="0.5" measure-ordering="alphabetic" measure-percentage="0.4" show-structure="true"/>
+      <semantic-values>
+        <semantic-value key="[Country].[Name]" value="&quot;Country&quot;"/>
+      </semantic-values>
+      <date-options start-of-week="monday"/>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name="KPI Total Countries">
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="CLASS_2025_07_02" name="federated.0l8h7ne1q4h91z19bvmwz0w7c4q6"/>
+          </datasources>
+          <datasource-dependencies datasource="federated.0l8h7ne1q4h91z19bvmwz0w7c4q6">
+            <column caption="Count of Countries" datatype="integer" name="[Number of Records]" role="measure" type="quantitative" user:auto-column="numrec">
+              <calculation class="tableau" formula="1"/>
+            </column>
+            <column-instance column="[Number of Records]" derivation="Sum" name="[sum:Number of Records:qk]" pivot="key" type="quantitative"/>
+          </datasource-dependencies>
+          <aggregation value="true"/>
+        </view>
+        <style/>
+        <panes>
+          <pane selection-relaxation-option="selection-relaxation-allow">
+            <view>
+              <breakdown value="auto"/>
+            </view>
+            <mark class="Text"/>
+            <encodings>
+              <text column="[federated.0l8h7ne1q4h91z19bvmwz0w7c4q6].[sum:Number of Records:qk]"/>
+            </encodings>
+            <style>
+              <style-rule element="mark">
+                <format attr="mark-labels-show" value="true"/>
+                <format attr="mark-labels-cull" value="true"/>
+                <format attr="font-size" value="24"/>
+                <format attr="font-weight" value="bold"/>
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows/>
+        <cols/>
+      </table>
+      <simple-id uuid="{6371DA8D-F645-4E86-AC25-C3E308D42763}"/>
+    </worksheet>
+    <worksheet name="Income Group Pie Chart">
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="CLASS_2025_07_02" name="federated.0l8h7ne1q4h91z19bvmwz0w7c4q6"/>
+          </datasources>
+          <datasource-dependencies datasource="federated.0l8h7ne1q4h91z19bvmwz0w7c4q6">
+            <column datatype="string" name="[Income Group]" role="dimension" type="nominal"/>
+            <column caption="Count of Countries" datatype="integer" name="[Number of Records]" role="measure" type="quantitative" user:auto-column="numrec">
+              <calculation class="tableau" formula="1"/>
+            </column>
+            <column-instance column="[Income Group]" derivation="None" name="[none:Income Group:nk]" pivot="key" type="nominal"/>
+            <column-instance column="[Number of Records]" derivation="Sum" name="[sum:Number of Records:qk]" pivot="key" type="quantitative"/>
+          </datasource-dependencies>
+          <aggregation value="true"/>
+        </view>
+        <style/>
+        <panes>
+          <pane selection-relaxation-option="selection-relaxation-allow">
+            <view>
+              <breakdown value="auto"/>
+            </view>
+            <mark class="Pie"/>
+            <encodings>
+              <color column="[federated.0l8h7ne1q4h91z19bvmwz0w7c4q6].[none:Income Group:nk]"/>
+              <size column="[federated.0l8h7ne1q4h91z19bvmwz0w7c4q6].[sum:Number of Records:qk]"/>
+              <text column="[federated.0l8h7ne1q4h91z19bvmwz0w7c4q6].[sum:Number of Records:qk]"/>
+            </encodings>
+            <style>
+              <style-rule element="mark">
+                <format attr="mark-labels-show" value="true"/>
+                <format attr="mark-labels-cull" value="true"/>
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows/>
+        <cols/>
+      </table>
+      <simple-id uuid="{AA4F764E-A2C6-4AC8-B3E5-E13309D22F69}"/>
+    </worksheet>
+    <worksheet name="Lending Category Bar Chart">
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="CLASS_2025_07_02" name="federated.0l8h7ne1q4h91z19bvmwz0w7c4q6"/>
+          </datasources>
+          <datasource-dependencies datasource="federated.0l8h7ne1q4h91z19bvmwz0w7c4q6">
+            <column datatype="string" name="[Lending Category]" role="dimension" type="nominal"/>
+            <column caption="Count of Countries" datatype="integer" name="[Number of Records]" role="measure" type="quantitative" user:auto-column="numrec">
+              <calculation class="tableau" formula="1"/>
+            </column>
+            <column-instance column="[Lending Category]" derivation="None" name="[none:Lending Category:nk]" pivot="key" type="nominal"/>
+            <column-instance column="[Number of Records]" derivation="Sum" name="[sum:Number of Records:qk]" pivot="key" type="quantitative"/>
+          </datasource-dependencies>
+          <aggregation value="true"/>
+        </view>
+        <style/>
+        <panes>
+          <pane selection-relaxation-option="selection-relaxation-allow">
+            <view>
+              <breakdown value="auto"/>
+            </view>
+            <mark class="Bar"/>
+            <encodings>
+              <color column="[federated.0l8h7ne1q4h91z19bvmwz0w7c4q6].[none:Lending Category:nk]"/>
+            </encodings>
+            <style>
+              <style-rule element="mark">
+                <format attr="mark-labels-show" value="true"/>
+                <format attr="mark-labels-cull" value="true"/>
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0l8h7ne1q4h91z19bvmwz0w7c4q6].[sum:Number of Records:qk]</rows>
+        <cols>[federated.0l8h7ne1q4h91z19bvmwz0w7c4q6].[none:Lending Category:nk]</cols>
+      </table>
+      <simple-id uuid="{D26FBFFC-640F-4CE9-8632-0BF9298E1940}"/>
+    </worksheet>
+    <worksheet name="Countries by Region">
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="CLASS_2025_07_02" name="federated.0l8h7ne1q4h91z19bvmwz0w7c4q6"/>
+          </datasources>
+          <datasource-dependencies datasource="federated.0l8h7ne1q4h91z19bvmwz0w7c4q6">
+            <column datatype="string" name="[Region]" role="dimension" type="nominal"/>
+            <column caption="Count of Countries" datatype="integer" name="[Number of Records]" role="measure" type="quantitative" user:auto-column="numrec">
+              <calculation class="tableau" formula="1"/>
+            </column>
+            <column-instance column="[Region]" derivation="None" name="[none:Region:nk]" pivot="key" type="nominal"/>
+            <column-instance column="[Number of Records]" derivation="Sum" name="[sum:Number of Records:qk]" pivot="key" type="quantitative"/>
+          </datasource-dependencies>
+          <aggregation value="true"/>
+        </view>
+        <style/>
+        <panes>
+          <pane selection-relaxation-option="selection-relaxation-allow">
+            <view>
+              <breakdown value="auto"/>
+            </view>
+            <mark class="Bar"/>
+            <encodings>
+              <color column="[federated.0l8h7ne1q4h91z19bvmwz0w7c4q6].[none:Region:nk]"/>
+            </encodings>
+            <style>
+              <style-rule element="mark">
+                <format attr="mark-labels-show" value="true"/>
+                <format attr="mark-labels-cull" value="true"/>
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0l8h7ne1q4h91z19bvmwz0w7c4q6].[none:Region:nk]</rows>
+        <cols>[federated.0l8h7ne1q4h91z19bvmwz0w7c4q6].[sum:Number of Records:qk]</cols>
+      </table>
+      <simple-id uuid="{38459214-E7F5-4822-B158-F4888354FA12}"/>
+    </worksheet>
+    <worksheet name="Income Groups by Region">
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="CLASS_2025_07_02" name="federated.0l8h7ne1q4h91z19bvmwz0w7c4q6"/>
+          </datasources>
+          <datasource-dependencies datasource="federated.0l8h7ne1q4h91z19bvmwz0w7c4q6">
+            <column datatype="string" name="[Region]" role="dimension" type="nominal"/>
+            <column-instance column="[Region]" derivation="None" name="[none:Region:nk]" pivot="key" type="nominal"/>
+            <column datatype="string" name="[Income Group]" role="dimension" type="nominal"/>
+            <column-instance column="[Income Group]" derivation="None" name="[none:Income Group:nk]" pivot="key" type="nominal"/>
+            <column caption="Count of Countries" datatype="integer" name="[Number of Records]" role="measure" type="quantitative" user:auto-column="numrec">
+              <calculation class="tableau" formula="1"/>
+            </column>
+            <column-instance column="[Number of Records]" derivation="Sum" name="[sum:Number of Records:qk]" pivot="key" type="quantitative"/>
+          </datasource-dependencies>
+          <aggregation value="true"/>
+        </view>
+        <style/>
+        <panes>
+          <pane selection-relaxation-option="selection-relaxation-allow">
+            <view>
+              <breakdown value="auto"/>
+            </view>
+            <mark class="Bar"/>
+            <encodings>
+              <color column="[federated.0l8h7ne1q4h91z19bvmwz0w7c4q6].[none:Income Group:nk]"/>
+            </encodings>
+            <style>
+              <style-rule element="mark">
+                <format attr="mark-labels-show" value="true"/>
+                <format attr="mark-labels-cull" value="true"/>
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0l8h7ne1q4h91z19bvmwz0w7c4q6].[none:Region:nk]</rows>
+        <cols>[federated.0l8h7ne1q4h91z19bvmwz0w7c4q6].[sum:Number of Records:qk]</cols>
+      </table>
+      <simple-id uuid="{0793120C-4486-456E-913A-FA87BB2A5B3E}"/>
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard name="World Bank Countries Dashboard">
+      <style/>
+      <size maxheight="800" maxwidth="1200" minheight="600" minwidth="800"/>
+      <zones>
+        <zone h="60" id="1" type="text" w="1200" x="0" y="0">
+          <zone-style>
+            <format attr="border-color" value="#000000"/>
+            <format attr="border-style" value="none"/>
+            <format attr="border-width" value="0"/>
+            <format attr="margin" value="4"/>
+          </zone-style>
+          <text>
+            <run bold="true" fontsize="18">World Bank Countries Dashboard</run>
+          </text>
+        </zone>
+        <zone h="100" id="2" name="Filters" w="300" x="0" y="60">
+          <zone-style>
+            <format attr="border-color" value="#e6e6e6"/>
+            <format attr="border-style" value="solid"/>
+            <format attr="border-width" value="1"/>
+            <format attr="margin" value="4"/>
+          </zone-style>
+        </zone>
+        <zone h="120" id="3" name="KPI Cards" w="900" x="300" y="60">
+          <zone-style>
+            <format attr="border-color" value="#e6e6e6"/>
+            <format attr="border-style" value="solid"/>
+            <format attr="border-width" value="1"/>
+            <format attr="margin" value="4"/>
+          </zone-style>
+        </zone>
+        <zone h="280" id="4" name="Income Group Pie Chart" w="400" x="0" y="180">
+          <zone-style>
+            <format attr="border-color" value="#e6e6e6"/>
+            <format attr="border-style" value="solid"/>
+            <format attr="border-width" value="1"/>
+            <format attr="margin" value="4"/>
+          </zone-style>
+        </zone>
+        <zone h="280" id="5" name="Lending Category Bar Chart" w="400" x="400" y="180">
+          <zone-style>
+            <format attr="border-color" value="#e6e6e6"/>
+            <format attr="border-style" value="solid"/>
+            <format attr="border-width" value="1"/>
+            <format attr="margin" value="4"/>
+          </zone-style>
+        </zone>
+        <zone h="280" id="6" name="Countries by Region" w="400" x="800" y="180">
+          <zone-style>
+            <format attr="border-color" value="#e6e6e6"/>
+            <format attr="border-style" value="solid"/>
+            <format attr="border-width" value="1"/>
+            <format attr="margin" value="4"/>
+          </zone-style>
+        </zone>
+        <zone h="280" id="7" name="Income Groups by Region" w="900" x="0" y="460">
+          <zone-style>
+            <format attr="border-color" value="#e6e6e6"/>
+            <format attr="border-style" value="solid"/>
+            <format attr="border-width" value="1"/>
+            <format attr="margin" value="4"/>
+          </zone-style>
+        </zone>
+        <zone h="60" id="8" name="Notes" w="300" x="900" y="460">
+          <zone-style>
+            <format attr="border-color" value="#e6e6e6"/>
+            <format attr="border-style" value="solid"/>
+            <format attr="border-width" value="1"/>
+            <format attr="margin" value="4"/>
+          </zone-style>
+          <text>
+            <run fontsize="10">Data Source: World Bank Country Classifications (CLASS_2025_07_02). Hover over charts for detailed tooltips with additional metadata.</run>
+          </text>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated="true" name="Phone">
+          <size maxheight="700" minheight="700" sizing-mode="vscroll"/>
+          <zones>
+            <zone h="60" id="1" type="text" w="350" x="0" y="0"/>
+            <zone h="100" id="2" w="350" x="0" y="60"/>
+            <zone h="120" id="3" w="350" x="0" y="160"/>
+            <zone h="280" id="4" w="350" x="0" y="280"/>
+            <zone h="280" id="5" w="350" x="0" y="560"/>
+            <zone h="280" id="6" w="350" x="0" y="840"/>
+            <zone h="280" id="7" w="350" x="0" y="1120"/>
+            <zone h="60" id="8" w="350" x="0" y="1400"/>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid="{B01F1A40-7A08-45B1-A300-068F63D7F0B5}"/>
+    </dashboard>
+  </dashboards>
+  <windows source-height="30">
+    <window class="dashboard" maximized="true" name="World Bank Countries Dashboard">
+      <cards>
+        <edge name="left">
+          <strip size="160">
+            <card type="pages"/>
+            <card type="filters"/>
+            <card type="marks"/>
+          </strip>
+        </edge>
+        <edge name="top">
+          <strip size="2147483647">
+            <card type="columns"/>
+          </strip>
+          <strip size="2147483647">
+            <card type="rows"/>
+          </strip>
+          <strip size="31">
+            <card type="title"/>
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid="{7F6232BF-80F5-429D-A936-90B82D3DEE78}"/>
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height="192" name="World Bank Countries Dashboard" width="192">iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAFQklE</thumbnail>
+  </thumbnails>
+</workbook>
