@@ -20,7 +20,7 @@ This project presents interactive data visualizations from the **National Family
 2. Navigate through dashboards to explore key indicators.
 3. Use filters and interactive controls to compare across states, regions, and demographics.
 
-## 📑 Data Source
+## Data Source
 
 * **National Family Health Survey (NFHS-5), 2019-21**
 * Conducted by the International Institute for Population Sciences (IIPS), funded by the Ministry of Health and Family Welfare (MoHFW), Government of India.
